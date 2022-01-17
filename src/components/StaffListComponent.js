@@ -9,23 +9,60 @@ class StaffList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectednhanvien: null
            };
 
     }
+    nhanVien(staff) {
+        this.setState({selectednhanvien: staff});
+
+    }
+
+    rendernhanvien(staff) {
+        if (staff !=null){
+            return (
+                <div className="card">
+                    <h2>Họ và tên:{staff.name} </h2>
+                    <p>Ngày sinh:</p>
+                    <p>Ngày vào công ty:</p>
+                    <p>Phòng ban:</p>
+                    <p>Số ngày nghỉ còn lại:</p>
+                    <p>Số ngày đã làm thêm:</p>
+                </div>
+
+            );
+
+        }
+        else {
+            return(
+                <div></div>
+
+            );
+        }
+    }
+
+
+
     render(){
-        const staff=this.props.staffslist.map((staff) =>{
+        const staffs=this.props.staff.map((staff) =>{
             return (
                 
-                    <div className="col-sm-12 col-md-5 col-lg-3 card-header m-1">{staff.name}</div>
+                    <div onClick={() => this.nhanVien(staff)} className="col-sm-12 col-md-5 col-lg-3 card-header m-1">{staff.name}</div>
                 
             );
         })
 
         return (
+            <>
             <div className="row" >      
-                {staff}
-                <p>Bấm vào tên nhân viên để xem thông tin</p>
+                {staffs}  
             </div>
+            <div className="row ">
+                {this.rendernhanvien(this.state.selectednhanvien)}
+
+            </div>
+            </>
+            
     
         );
 
