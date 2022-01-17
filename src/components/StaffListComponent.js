@@ -25,7 +25,7 @@ class StaffList extends React.Component {
                     <h2>Họ và tên:{staff.name} </h2>
                     <p>Ngày sinh: {dateFormat(staff.doB,"dd/mm/yyyy")}</p>
                     <p>Ngày vào công ty: {dateFormat(staff.startDate,"dd/mm/yyyy")}</p>
-                    <p>Phòng ban: </p>
+                    <p>Phòng ban: {staff.department.name}</p>
                     <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
                     <p>Số ngày đã làm thêm: {staff.overTime}</p>
                 </div>
