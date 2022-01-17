@@ -26,8 +26,8 @@ class StaffList extends React.Component {
                     <p>Ngày sinh:</p>
                     <p>Ngày vào công ty:</p>
                     <p>Phòng ban:</p>
-                    <p>Số ngày nghỉ còn lại:</p>
-                    <p>Số ngày đã làm thêm:</p>
+                    <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
+                    <p>Số ngày đã làm thêm: {staff.overTime}</p>
                 </div>
 
             );
