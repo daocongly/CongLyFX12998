@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-import dateFormat from 'dateformat';
+import dateFormat, {masks} from 'dateformat';
 import { STAFFS } from '../share/staffs';
 
 
@@ -23,9 +23,9 @@ class StaffList extends React.Component {
             return (
                 <div className="card">
                     <h2>Họ và tên:{staff.name} </h2>
-                    <p>Ngày sinh:</p>
-                    <p>Ngày vào công ty:</p>
-                    <p>Phòng ban:</p>
+                    <p>Ngày sinh: {dateFormat(staff.doB,"dd/mm/yyyy")}</p>
+                    <p>Ngày vào công ty: {dateFormat(staff.startDate,"dd/mm/yyyy")}</p>
+                    <p>Phòng ban: </p>
                     <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
                     <p>Số ngày đã làm thêm: {staff.overTime}</p>
                 </div>
