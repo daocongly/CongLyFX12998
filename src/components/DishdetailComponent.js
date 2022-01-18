@@ -9,16 +9,40 @@ class DishDetail extends React.Component {
         this.state = {}
     }
 
+    renderComment(detail) {
+        const nhanXet = detail.comments.map((nhanxet) =>
+        { return(
+            <>
+            <p>{nhanxet.comment}</p>
+            <p>{nhanxet.author}</p>
+            </>
+            
+
+                 );
+        });
+        return( nhanXet );
+
+    }
+
     renderDish(detail) {
         if (detail!=null) {
             return (
-            <Card>
-            <CardImg with="100%" object src={detail.image} alt={detail.name}/>
-            <CardBody>
-            <CardTitle className="h3">{detail.name}</CardTitle>
-            <CardText>{detail.description}</CardText>
-            </CardBody>
-            </Card>);
+                <>
+                <div className="col-sm-12 col-md-5 m-1">
+                    <Card>
+                    <CardImg with="100%" object src={detail.image} alt={detail.name}/>
+                    <CardBody>
+                    <CardTitle className="h3">{detail.name}</CardTitle>
+                    <CardText>{detail.description}</CardText>
+                    </CardBody>
+                     </Card>
+
+                </div>
+                <div className="col-sm-12 col-md-5 m-1" >
+                 {this.renderComment(this.props.detail)}
+                </div >
+                </>
+                );           
         }
         else {
             return (
@@ -28,7 +52,7 @@ class DishDetail extends React.Component {
     }
     render() {
         return(
-            <>
+        <>
         {this.renderDish(this.props.detail)}
         </>
         );
