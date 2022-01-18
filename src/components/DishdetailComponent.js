@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
+import dateFormat from 'dateformat';
 
 
 class DishDetail extends React.Component {
@@ -14,10 +15,8 @@ class DishDetail extends React.Component {
         { return(
             <>
             <p>{nhanxet.comment}</p>
-            <p>{nhanxet.author}</p>
+            <p>{nhanxet.author}, {dateFormat(nhanxet.date,"mmm d, yyyy")} </p>
             </>
-            
-
                  );
         });
         return( nhanXet );
