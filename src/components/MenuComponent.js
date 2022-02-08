@@ -28,8 +28,6 @@ class Menu extends React.Component {
                         {menu}
                 </div>
                 <div className="row">
-                    <DishDetail detail={this.state.selectedDish}/>
-                    {/* {this.renderDish(this.state.selectedDish)} */}
                 </div>
             </div>
 
