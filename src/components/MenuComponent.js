@@ -1,14 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
 
 class Menu extends React.Component {
     constructor(props) {
-        super(props);
-        
+        super(props);        
     }
-    
-    
+   
     render() {
         const menu =this.props.dishes.map((dish)=> {
             return (
@@ -27,8 +24,7 @@ class Menu extends React.Component {
                 <div className="row">
                         {menu}
                 </div>
-                <div className="row">
-                </div>
+                
             </div>
 
         );
