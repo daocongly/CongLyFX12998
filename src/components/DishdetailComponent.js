@@ -17,7 +17,7 @@ class DishDetail extends React.Component {
             <p>{nhanxet.comment}</p>
             <p>{nhanxet.author}, {dateFormat(nhanxet.date,"mmm d, yyyy")} </p>
             </>
-                 );
+            );
         });
         return( nhanXet );
 
@@ -26,7 +26,8 @@ class DishDetail extends React.Component {
     renderDish(detail) {
         if (detail!=null) {
             return (
-                <>
+                <div className="container ">
+                    <div className="row">
                 <div className="col-sm-12 col-md-5 m-1">
                     <Card>
                     <CardImg with="100%" object src={detail.image} alt={detail.name}/>
@@ -38,9 +39,10 @@ class DishDetail extends React.Component {
 
                 </div>
                 <div className="col-sm-12 col-md-5 m-1" >
-                 {this.renderComment(this.props.detail)}
+                 {this.renderComment(this.props.dish)}
                 </div >
-                </>
+                </div>
+                </div>
                 );           
         }
         else {
@@ -52,7 +54,7 @@ class DishDetail extends React.Component {
     render() {
         return(
         <>
-        {this.renderDish(this.props.detail)}
+        {this.renderDish(this.props.dish)}
         </>
         );
         

@@ -23,8 +23,7 @@ class Menu extends React.Component {
             <div className="container">
                 <div className="row">
                         {menu}
-                </div>
-                
+                </div>              
             </div>
 
         );
