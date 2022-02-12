@@ -4,7 +4,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'rea
 import dateFormat from 'dateformat';
 
     function RenderComment({dishComment}) {
-        const listComment = dishComment.comments.map((nhanxet) => {
+        const listComment = dishComment.map((nhanxet) => {
             return (
                 <>
                 <p>{nhanxet.comment}</p>
@@ -32,7 +32,7 @@ import dateFormat from 'dateformat';
 
                     </div>
                     <div className="col-sm-12 col-md-5 m-1" >
-                        <RenderComment dishComment={dish}/>
+                        <RenderComment dishComment={dish.comments}/>
                     </div>
                 </div>
             </div>
