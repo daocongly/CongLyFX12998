@@ -5,7 +5,7 @@ import {DISHES} from '../shared/dishes';
 import DishDetail from './DishdetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import {Routes, Route, useParams} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 class Main extends Component {
   constructor(props) {
@@ -24,11 +24,11 @@ class Main extends Component {
     return (
       <div>
         <Header/>
-        <Routes>
-          <Route path="/home" element={<Homepage/>} />
-          <Route path="/" element={<Homepage/>} />
-          <Route exact path="/menu" element={<Menu dishes={this.state.dishes} />}/>
-        </Routes>
+        <Switch>
+          <Route path="/home" component = {Homepage} />
+          <Route exact path="/menu" component ={() => <Menu dishes={this.state.dishes} />}/>
+          <Redirect to="/home" />
+        </Switch>
         <Footer/>
       </div>
     );
