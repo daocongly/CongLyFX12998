@@ -49,7 +49,7 @@ class Header extends React.Component {
                         </Collapse>
                     </div>
                 </Navbar>              
-                    <div className="container-fluid">
+                    <div className="container-fluid fixsai">
                         <div className="row jumbotron ">
                             <div className="col-12 col-sm-6 ">
                                 <h1>Ristorante Con Fusion </h1>
