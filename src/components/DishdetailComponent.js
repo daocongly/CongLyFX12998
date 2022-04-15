@@ -76,7 +76,7 @@ function RenderComments({comments}){
                         return (
                             <li key={comment.id}>
                                 <p>{comment.comment}</p>
-                                <p>-- {comment.author},{dateFormat(nhanxet.date,"mmm d, yyyy")}</p>
+                                <p>-- {comment.author},{dateFormat(comment.date,"mmm d, yyyy")}</p>
                             </li>
                         );
                     })}
