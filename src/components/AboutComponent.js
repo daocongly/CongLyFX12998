@@ -6,28 +6,20 @@ import { Link } from 'react-router-dom';
 function About(props) {
     const RenderLeader =props.leaders.map((leader) => {
         return (
-            <Card>
-            <CardImg with="20%" object src={leader.image} alt={leader.name}></CardImg>
-            <CardImgOverlay>
-            <CardTitle className="h3">{leader.description}</CardTitle>
-            </CardImgOverlay>
-            </Card>
+            <div key={leader.id} className="row mt-5">
+            <Media>
+                <Media left middle className="col-md-5">
+                    <Media object src={leader.image}/>
+                </Media>
+                <Media body className="ml-5 col-md-5">
+                    <Media heading>{leader.name}</Media>
+                    <p>{leader.designation}</p>
+                    <p>{leader.description}</p>
+                </Media>
+            </Media>
+        </div>
         );
     });
-   
-    
-
-
-
-
-
-
-    // const leaders = props.leaders.map((leader) => {
-    //     return (
-    //         <p>Leader {leader.name}</p>
-    //     );
-    // });
-
     return(
         <div className="container">
             <div className="row">
