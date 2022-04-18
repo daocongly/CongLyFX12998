@@ -56,17 +56,9 @@ class StaffList extends React.Component {
             </div>
             <div className="row ">
                 {this.rendernhanvien(this.state.selectednhanvien)}
-
             </div>
             </>
-            
-    
         );
-
     }
-    
-
-
-    
 }
 export default StaffList;
