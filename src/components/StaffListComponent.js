@@ -1,8 +1,5 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
-
-import dateFormat, {masks} from 'dateformat';
-import { STAFFS } from '../share/staffs';
+import dateFormat from 'dateformat';
 
 
 class StaffList extends React.Component {
