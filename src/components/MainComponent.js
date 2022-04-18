@@ -15,14 +15,12 @@ class Main extends React.Component {
       staff: STAFFS
     }
   }
-
-   StaffWithId = ({match}) => {
-    return ( 
-      <StaffDetail></StaffDetail>
-
-    );
-  }
   render (){
+    const StaffWithId = ({match}) => {
+      return ( 
+        <StaffDetail staff={this.state.staff.filter((staff) =>staff.id === parse(match.params.staffId,10))[0]}/>
+      );
+    }
     return (
       <div>
       <Header/>
