@@ -18,9 +18,10 @@ class Main extends React.Component {
     return (
       <>
       <Header/>
-      <Route path="nhanvien" component={()=> <StaffList staff={this.state.staff}/>}></Route>
-     
+      <Switch>
+      <Route exact path="nhanvien" component={()=> <StaffList staff={this.state.staff}/>}/>    
       <Footer/>
+      </Switch>
       </>
     );
   }
