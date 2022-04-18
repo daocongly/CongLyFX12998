@@ -16,13 +16,13 @@ class Main extends React.Component {
   }
   render (){
     return (
-      <>
+      <div>
       <Header/>
       <Switch>
-      <Route exact path="nhanvien" component={()=> <StaffList staff={this.state.staff}/>}/>    
-      <Footer/>
+      <Route exact path="/nhanvien" component={()=> <StaffList staff={this.state.staff}/>}/>    
       </Switch>
-      </>
+      <Footer/>
+      </div>
     );
   }
 }

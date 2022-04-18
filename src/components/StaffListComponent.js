@@ -1,64 +1,21 @@
 import React from 'react';
 import dateFormat from 'dateformat';
 
-
-class StaffList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectednhanvien: null
-           };
-
-    }
-    nhanVien(staff) {
-        this.setState({selectednhanvien: staff});
-
-    }
-
-    rendernhanvien(staff) {
-        if (staff !=null){
-            return (
-                <div className="card">
-                    <h2>Họ và tên:{staff.name} </h2>
-                    <p>Ngày sinh: {dateFormat(staff.doB,"dd/mm/yyyy")}</p>
-                    <p>Ngày vào công ty: {dateFormat(staff.startDate,"dd/mm/yyyy")}</p>
-                    <p>Phòng ban: {staff.department.name}</p>
-                    <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
-                    <p>Số ngày đã làm thêm: {staff.overTime}</p>
-                </div>
-
-            );
-
-        }
-        else {
-            return(
-                <div></div>
-
-            );
-        }
-    }
-
-
-
-    render(){
-        const staffs=this.props.staff.map((staff) =>{
-            return (
-                
-                    <div onClick={() => this.nhanVien(staff)} className="col-sm-12 col-md-5 col-lg-3 card-header m-1">{staff.name}</div>
-                
-            );
-        })
-
+function StaffList(props){
+    const list = props.staff.map((item) =>{
         return (
-            <>
-            <div className="row" >      
-                {staffs}  
+            <div key={item.id} className="col-sm-2 text-center">
+                <img src={item.image} alt="" width="100%"></img>
+                <p className="border">{item.name}</p>
             </div>
-            <div className="row ">
-                {this.rendernhanvien(this.state.selectednhanvien)}
-            </div>
-            </>
         );
-    }
+    })
+    return (
+    <div className="container row ">
+        <h5>Nhân Viên</h5>
+        <hr/>
+        {list}
+    </div>);
 }
+
 export default StaffList;

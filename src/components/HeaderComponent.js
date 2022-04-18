@@ -21,7 +21,7 @@ class Header extends React.Component {
         return (
             <>
                 <Navbar dark expand="md">
-                    <div className="container">
+                    <div className="container-fluid">
                         <NavbarToggler onClick={this.toggleNav}/>
                         <NavbarBrand className="mr-auto" href="/">
                             <img src="assets/images/logo.png" heght="30" width="41"
@@ -31,17 +31,17 @@ class Header extends React.Component {
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/nhanvien">
-                                    <i class="fa fa-users" aria-hidden="true"></i> Nhân Viên
+                                    <i className="fa fa-users" aria-hidden="true"></i> Nhân Viên
                                     </NavLink>    
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/phongban">
-                                    <i class="fa fa-id-card" aria-hidden="true"></i> Phòng Ban
+                                    <i className="fa fa-id-card" aria-hidden="true"></i> Phòng Ban
                                     </NavLink>   
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/bangluong">
-                                    <i class="fa fa-money" aria-hidden="true"></i> Bảng Lương
+                                    <i className="fa fa-money" aria-hidden="true"></i> Bảng Lương
                                     </NavLink>
                                 </NavItem>                               
                             </Nav>
