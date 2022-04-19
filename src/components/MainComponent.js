@@ -17,6 +17,7 @@ class Main extends React.Component {
   }
   render (){
     const StaffWithId = ({match}) => {
+      console.log(match);
       return ( 
         <StaffDetail staff={this.state.staff.filter((staff) =>staff.id === parseInt(match.params.staffId,10))[0]}/>
       );

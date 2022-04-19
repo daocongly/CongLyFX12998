@@ -1,5 +1,7 @@
 import React from 'react';
 import dateFormat from 'dateformat';
+import { Card, CardImg, Breadcrumb,BreadcrumbItem} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 function StaffDetail(props){
     if (props.staff !=null)
@@ -11,7 +13,7 @@ function StaffDetail(props){
             </Breadcrumb>
             <div className="row">
                 <div className="col-sm-12 col-md-4 col-lg-3">
-                    <img src={props.staff.image} alt={props.staff.name} />
+                    <img src={props.staff.image} alt={props.staff.name} width ="250" height="230"/>
                 </div>
                 <div className="col-sm-12 col-md-8 col-lg-9">
                     <h3>{props.staff.name}</h3>
