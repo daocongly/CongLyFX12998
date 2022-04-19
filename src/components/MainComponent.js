@@ -18,7 +18,7 @@ class Main extends React.Component {
   render (){
     const StaffWithId = ({match}) => {
       return ( 
-        <StaffDetail staff={this.state.staff.filter((staff) =>staff.id === parse(match.params.staffId,10))[0]}/>
+        <StaffDetail staff={this.state.staff.filter((staff) =>staff.id === parseInt(match.params.staffId,10))[0]}/>
       );
     }
     return (

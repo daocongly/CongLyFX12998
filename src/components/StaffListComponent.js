@@ -14,10 +14,12 @@ function StaffList(props){
         );
     })
     return (
-    <div className="container row ">
+    <div className="container">
         <h5>Nhân Viên</h5>
         <hr/>
+        <div className="row">
         {list}
+        </div>        
     </div>);
 }
 
