@@ -1,6 +1,6 @@
 import React from 'react';
 import dateFormat from 'dateformat';
-import { Card, CardImg, Breadcrumb,BreadcrumbItem} from 'reactstrap';
+import { Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 function StaffDetail(props){

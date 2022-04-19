@@ -1,18 +1,20 @@
 import React from 'react';
 // import './App.css';
-import {STAFFS} from '../share/staffs';
+import {STAFFS, DEPARTMENTS} from '../share/staffs';
 import StaffList from './StaffListComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import StaffDetail from './StaffDetail';
-import {Route, Switch, Link} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
+import Department from './DepartmentComponent';
 
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      staff: STAFFS
+      staff: STAFFS,
+      depart: DEPARTMENTS
     }
   }
   render (){
@@ -28,6 +30,8 @@ class Main extends React.Component {
       <Switch>
       <Route exact path="/nhanvien" component={()=> <StaffList staff={this.state.staff}/>}/> 
       <Route path="/nhanvien/:staffId" component={StaffWithId}/> 
+      <Route path="/phongban" component={() => < Department depart={this.state.depart}/>}/> 
+
       </Switch>
       <Footer/>
       </div>
