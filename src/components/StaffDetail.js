@@ -1,8 +1,32 @@
 import React from 'react';
+import dateFormat from 'dateformat';
 
-function StaffDetail (props) {
-    const employee = () => {}
-    return (     <></> 
+function StaffDetail(props){
+    if (props.staff !=null)
+    return(
+        <div className="container">
+            <Breadcrumb>
+            <BreadcrumbItem><Link to='/nhanvien'>Nhân Viên</Link></BreadcrumbItem>
+            <BreadcrumbItem active>{props.staff.name}</BreadcrumbItem>
+            </Breadcrumb>
+            <div className="row">
+                <div className="col-sm-12 col-md-4 col-lg-3">
+                    <img src={props.staff.image} alt={props.staff.name} />
+                </div>
+                <div className="col-sm-12 col-md-8 col-lg-9">
+                    <h3>{props.staff.name}</h3>
+                    <p>Ngày sinh: {dateFormat(props.staff.doB,"dd/mm/yyyy")}</p>
+                    <p>Ngày vào công ty: {dateFormat(props.staff.startDate,"dd/mm/yyyy")}</p>
+                    <p>Phòng ban: {props.staff.department.name}</p>
+                    <p>Số ngày nghỉ còn lại: {props.staff.annualLeave}</p>
+                    <p>Số ngày đã làm thêm: {props.staff.overTime}</p>
+                </div>
+            </div>
+        </div>
+    );
+    else
+    return(
+        <div></div>
     );
 }
 
