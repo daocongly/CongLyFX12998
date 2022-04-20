@@ -7,6 +7,8 @@ import Footer from './FooterComponent';
 import StaffDetail from './StaffDetail';
 import {Route, Switch} from 'react-router-dom'
 import Department from './DepartmentComponent';
+import Salary from './SalaryComponent';
+
 
 
 class Main extends React.Component {
@@ -31,7 +33,7 @@ class Main extends React.Component {
       <Route exact path="/nhanvien" component={()=> <StaffList staff={this.state.staff}/>}/> 
       <Route path="/nhanvien/:staffId" component={StaffWithId}/> 
       <Route path="/phongban" component={() => < Department depart={this.state.depart}/>}/> 
-
+      <Route path="/bangluong" component={() => < Salary salary={this.state.staff}/>}/> 
       </Switch>
       <Footer/>
       </div>
