@@ -1,9 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-
 import dateFormat, {masks} from 'dateformat';
 import { STAFFS } from '../share/staffs';
-
 
 class StaffList extends React.Component {
     constructor(props) {
@@ -11,13 +9,10 @@ class StaffList extends React.Component {
         this.state = {
             selectednhanvien: null
            };
-
     }
     nhanVien(staff) {
         this.setState({selectednhanvien: staff});
-
     }
-
     rendernhanvien(staff) {
         if (staff !=null){
             return (
@@ -29,29 +24,20 @@ class StaffList extends React.Component {
                     <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
                     <p>Số ngày đã làm thêm: {staff.overTime}</p>
                 </div>
-
             );
-
         }
         else {
             return(
                 <div></div>
-
             );
         }
     }
-
-
-
     render(){
         const staffs=this.props.staff.map((staff) =>{
-            return (
-                
-                    <div onClick={() => this.nhanVien(staff)} className="col-sm-12 col-md-5 col-lg-3 card-header m-1">{staff.name}</div>
-                
+            return (           
+                <div onClick={() => this.nhanVien(staff)} className="col-sm-12 col-md-5 col-lg-3 card-header m-1">{staff.name}</div>
             );
         })
-
         return (
             <>
             <div className="row" >      
@@ -59,17 +45,10 @@ class StaffList extends React.Component {
             </div>
             <div className="row ">
                 {this.rendernhanvien(this.state.selectednhanvien)}
-
             </div>
             </>
-            
-    
         );
-
     }
-    
-
-
-    
+ 
 }
 export default StaffList;
