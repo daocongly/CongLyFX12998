@@ -2,7 +2,6 @@ import React from 'react';
 import { Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
-
 function Salary(props){
     const salary = props.salary.map((item) =>{
         return(
@@ -18,7 +17,6 @@ function Salary(props){
         );
     }) 
     return (
-
         <div className="container">
             <Breadcrumb>
             <BreadcrumbItem><Link to='/nhanvien'> Nhân Viên</Link></BreadcrumbItem>
