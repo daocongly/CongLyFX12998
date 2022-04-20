@@ -30,7 +30,7 @@ class Main extends React.Component {
       <div>
       <Header/>
       <Switch>
-      <Route exact path="/nhanvien" component={()=> <StaffList staff={this.state.staff}/>}/> 
+      <Route exact path="/" component={()=> <StaffList staff={this.state.staff}/>}/> 
       <Route path="/nhanvien/:staffId" component={StaffWithId}/> 
       <Route path="/phongban" component={() => < Department depart={this.state.depart}/>}/> 
       <Route path="/bangluong" component={() => < Salary salary={this.state.staff}/>}/> 
