@@ -16,6 +16,12 @@ class Contact extends React.Component {
 
         }
     }
+    handleInputChange(event) {
+
+    }
+    handleSubmit(event) {
+
+    }
 
     render() {
         return(
@@ -61,7 +67,7 @@ class Contact extends React.Component {
                         <h3>Send us Your Feedback</h3>
                     </div>
                     <div className="col-12 col-md-9">
-                        <Form>
+                        <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
                                 <Label htmlFor ="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -109,11 +115,21 @@ class Contact extends React.Component {
                                     <option>Tel.</option>
                                     <option>Email</option>
                                 </Input>
-
                                 </Col>
-
                             </FormGroup>
-
+                            <FormGroup row>
+                                <Label htmlFor ="message" md={2}>Your Feedback </Label>
+                                <Col md={10}>
+                                    <Input type="textarea" id="message" name="message"
+                                    rows ="12"
+                                    value={this.state.message}/>
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row>
+                            <Col md={{size: 10,offset: 2}}>
+                                <Button type="submit" color="primary"> Send Feedback</Button>
+                            </Col>
+                            </FormGroup>
                         </Form>
                     </div>
                 </div>
