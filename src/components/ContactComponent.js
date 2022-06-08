@@ -32,8 +32,6 @@ class Contact extends React.Component {
         console.log("Current State is:" + JSON.stringify(this.state));
         alert("Current State is:" + JSON.stringify(this.state));
         event.preventDefault();
-        
-
     }
 
     render() {
@@ -118,7 +116,7 @@ class Contact extends React.Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Col md={{size: 6,offset: 2}}></Col>
+                                <Col md={{size: 6,offset: 9}}>
                                 <FormGroup check>
                                     <Label check>
                                         <Input type="checkbox" name="agree"
@@ -126,8 +124,10 @@ class Contact extends React.Component {
                                             onChange={this.handleInputChange}/>{' '}
                                         <strong>May we contact you?</strong>
                                     </Label>
+                                    
                                 </FormGroup>
-                                <Col md={{size: 3,offset: 1}}>
+                                </Col>
+                                <Col md={{size: 3,offset: 9}}>
                                 <Input type="select" name="contactType"
                                     value={this.state.contactType}
                                     onChange={this.handleInputChange}>
