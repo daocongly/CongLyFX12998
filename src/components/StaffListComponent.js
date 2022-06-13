@@ -6,14 +6,23 @@ import {NavLink} from 'react-router-dom';
 class StaffList extends React.Component {
     constructor(props) {
         super(props);
-        this.setState = {
-            input: ""
-
-
+        this.state = {
+            search: ""
         }
     }
+    handleSearchChange=(event)=>{
+        const name = event.target.name;
+        this.setState({
+            [name]: event.target.value
+        })
+    }
+    handleSearch=()=>{
+        
+    }
     render(){
-        const list = this.props.staff.map((item) =>{
+        
+        const list = this.props.staff.map((item) => {
+            item.name = this.state.search
             return (
                 <div key={item.id} className="col-sm-6 col-md-4 col-lg-2 text-center">
                     <Link to={`/nhanvien/${item.id}`}>
@@ -30,7 +39,7 @@ class StaffList extends React.Component {
                     <h5 className="display: inline">Nhân Viên</h5><i class="fa fa-plus-square" aria-hidden="true"></i>
                     </div>
                     <div className="col-sm-12 col-md-5 col-lg-3 ms-auto">
-                    <input value={this.state.input}  /><label className="btn btn-primary ms-2" onClick={9}>Tìm</label>
+                    <input type="text" value={this.state.search} onChange={this.handleSearchChange} name="search"  /><button className="btn btn-primary ms-2" onClick={this.handleSearch}>Tìm</button>
                     </div>       
                 </div>
                 <hr/>
