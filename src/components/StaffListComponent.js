@@ -7,7 +7,8 @@ class StaffList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: ""
+            search: "",
+            searchfilter: this.props.staff
         }
     }
     handleSearchChange=(event)=>{
@@ -17,21 +18,25 @@ class StaffList extends React.Component {
         })
     }
     handleSearch=()=>{
-        
+        const filtersearch= this.props.staff.filter((item) =>
+        item.name.toLowerCase().includes(this.state.search.toLowerCase())
+        )
+        this.setState({
+            searchfilter: filtersearch
+        })
     }
     render(){
-        
-        const list = this.props.staff.map((item) => {
-            item.name = this.state.search
-            return (
-                <div key={item.id} className="col-sm-6 col-md-4 col-lg-2 text-center">
-                    <Link to={`/nhanvien/${item.id}`}>
-                    <img src={item.image} alt="" width="100%"></img>
-                    <p className="border">{item.name}</p>
-                    </Link>
-                </div>
-            );
-        })
+            const list = this.state.searchfilter.map((item) => {
+                return (
+                    <div key={item.id} className="col-sm-6 col-md-4 col-lg-2 text-center">
+                        <Link to={`/nhanvien/${item.id}`}>
+                        <img src={item.image} alt="" width="100%"></img>
+                        <p className="border">{item.name}</p>
+                        </Link>
+                    </div>
+                );
+            })
+
         return (
             <div className="container">
                 <div className="row mt-3">
@@ -39,7 +44,9 @@ class StaffList extends React.Component {
                     <h5 className="display: inline">Nhân Viên</h5><i class="fa fa-plus-square" aria-hidden="true"></i>
                     </div>
                     <div className="col-sm-12 col-md-5 col-lg-3 ms-auto">
-                    <input type="text" value={this.state.search} onChange={this.handleSearchChange} name="search"  /><button className="btn btn-primary ms-2" onClick={this.handleSearch}>Tìm</button>
+                    <input type="text" value={this.state.search} 
+                    onChange={this.handleSearchChange} name="search"/>
+                    <button className="btn btn-primary ms-2" onClick={this.handleSearch}>Tìm</button>
                     </div>       
                 </div>
                 <hr/>
