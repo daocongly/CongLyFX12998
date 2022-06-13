@@ -1,0 +1,82 @@
+<mxfile host="65bd71144e">
+    <diagram id="uFWjWkZYzZF4hGvK55jj" name="Page-1">
+        <mxGraphModel dx="709" dy="381" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Logo" style="rounded=1;whiteSpace=wrap;html=1;fontSize=35;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="10" width="120" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Layer 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=17;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="130" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=24;fontColor=#aaaaaa;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="130" width="20" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Layer 2" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=17;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="130" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=24;fontColor=#aaaaaa;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="130" width="20" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Layer 3" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=17;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="130" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=24;fontColor=#aaaaaa;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="130" width="20" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Layer 4" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=17;fontColor=#008cff;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="130" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Thông tin nhân viên" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="200" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Thông tin nhân viên" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="200" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Thông tin nhân viên" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="200" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Thông tin nhân viên" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="360" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Thông tin nhân viên" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="360" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Thông tin nhân viên" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="360" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="B" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#FFFFFF;fontSize=17;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="40" width="430" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="Nhân Viên" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#FFFFFF;" parent="42" vertex="1">
+                    <mxGeometry width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="" style="edgeStyle=none;html=1;fontSize=17;" parent="42" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="110" y="20" as="sourcePoint"/>
+                        <mxPoint x="110" y="15" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" value="" style="edgeStyle=none;html=1;fontSize=17;" parent="42" source="45" target="43" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="edgeStyle=none;html=1;fontSize=17;fontColor=#FFFFFF;" parent="42" source="45" target="43" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Phòng Ban" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#FFFFFF;" parent="42" vertex="1">
+                    <mxGeometry x="143.33" width="136.67" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Bảng Lương" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#FFFFFF;" parent="42" vertex="1">
+                    <mxGeometry x="280" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Thông tin địa chỉ liên hệ" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="590" width="140" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Link Google,Facebook..." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="590" width="120" height="90" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
