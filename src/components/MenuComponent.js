@@ -9,10 +9,8 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'rea
                 <CardTitle className="h3">{dish.name}</CardTitle>
             </CardImgOverlay>
             </Card>
-
         );
     }
-
     const Menu = (props) => {
 
         const menu =props.dishes.map((dish)=> {
@@ -28,9 +26,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'rea
                         {menu}
                 </div>              
             </div>
-
         );
-
     };
 
 export default Menu;
