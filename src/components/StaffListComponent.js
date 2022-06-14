@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
+import {Navbar, NavbarBrand, Nav, NavbarToggler,Collapse, NavItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input,} from 'reactstrap';
+
 
 class StaffList extends React.Component {
     constructor(props) {
@@ -12,6 +14,8 @@ class StaffList extends React.Component {
         // giằng buộc this trong method
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);      
+
     }
     //nhận giá trị từ input tìm kiếm
     handleSearchChange=(event)=>{
@@ -29,6 +33,13 @@ class StaffList extends React.Component {
             searchfilter: filtersearch
         })
     }
+    handleLogin(event) {
+        this.toggleModal();
+        alert("Username:"+ this.username.value + " Password:"+ this.password.value
+        + " Remember: " + this.remember.checked);
+        event.preventDefault();
+    }
+
     render(){
         //danh sách nhân viên
         const list = this.state.searchfilter.map((item) => {
@@ -44,9 +55,30 @@ class StaffList extends React.Component {
         return (
             <div className="container">
                 <div className="row mt-3">
-                    <div className="col-sm-12 col-md-6 col-lg-5">
-                    <h5 className="display: inline">Nhân Viên</h5><i class="fa fa-plus-square" aria-hidden="true"></i>
-                    </div>
+                <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal}>
+                        <ModalHeader toggle = {this.toggleModal}>Login</ModalHeader>
+                        <ModalBody>
+                            <Form onSubmit={this.handleLogin}></Form>
+                            <FormGroup>
+                                <Label htmlFor="username"> Username</Label>
+                                <Input type = "text" name = "username" id = "username"
+                                innerRef={(input) => this.username =input}></Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password"> PassWord</Label>
+                                <Input type = "text" name = "password" id = "password"
+                                innerRef={(input) => this.password =input}></Input>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                     <Input type="checkbox" name = "remember"
+                                      innerRef={(input) => this.remember =input}></Input>
+                                     Remember me
+                                </Label>
+                            </FormGroup>
+                            <Button type="submit" value="submit" color="bg-primary">Login </Button>
+                        </ModalBody>
+                    </Modal>
                     <div className="col-sm-12 col-md-5 col-lg-3 ms-auto">
                     <input type="text" value={this.state.search} 
                     onChange={this.handleSearchChange} name="search"/>
