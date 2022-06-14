@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
 
-
 class StaffList extends React.Component {
     constructor(props) {
         super(props);
@@ -10,13 +9,18 @@ class StaffList extends React.Component {
             search: "",
             searchfilter: this.props.staff
         }
+        // giằng buộc this trong method
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
+    //nhận giá trị từ input tìm kiếm
     handleSearchChange=(event)=>{
         const name = event.target.name;
         this.setState({
             [name]: event.target.value
         })
     }
+    // lọc danh sách mảng sau khi tìm kiếm
     handleSearch=()=>{
         const filtersearch= this.props.staff.filter((item) =>
         item.name.toLowerCase().includes(this.state.search.toLowerCase())
@@ -26,16 +30,16 @@ class StaffList extends React.Component {
         })
     }
     render(){
-            const list = this.state.searchfilter.map((item) => {
-                return (
-                    <div key={item.id} className="col-sm-6 col-md-4 col-lg-2 text-center">
-                        <Link to={`/nhanvien/${item.id}`}>
-                        <img src={item.image} alt="" width="100%"></img>
-                        <p className="border">{item.name}</p>
-                        </Link>
-                    </div>
-                );
-            })
+        //danh sách nhân viên
+        const list = this.state.searchfilter.map((item) => {
+            return (
+                <div key={item.id} className="col-sm-6 col-md-4 col-lg-2 text-center">
+                    <Link to={`/nhanvien/${item.id}`}>
+                    <img src={item.image} alt="" width="100%"></img>
+                    <p className="border">{item.name}</p>
+                    </Link>
+                </div>
+                ); });
 
         return (
             <div className="container">
