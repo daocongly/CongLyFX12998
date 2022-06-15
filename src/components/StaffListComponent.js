@@ -9,12 +9,13 @@ class StaffList extends React.Component {
         super(props);
         this.state = {
             search: "",
-            searchfilter: this.props.staff
+            searchfilter: this.props.staff,
+            isModalOpen: false,
         }
         // giằng buộc this trong method
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);      
+        this.toggleModal = this.toggleModal.bind(this);     
 
     }
     //nhận giá trị từ input tìm kiếm
@@ -33,12 +34,11 @@ class StaffList extends React.Component {
             searchfilter: filtersearch
         })
     }
-    handleLogin(event) {
-        this.toggleModal();
-        alert("Username:"+ this.username.value + " Password:"+ this.password.value
-        + " Remember: " + this.remember.checked);
-        event.preventDefault();
+    toggleModal(){
+        this.setState({ 
+            isModalOpen: !this.state.isModalOpen})
     }
+
 
     render(){
         //danh sách nhân viên
@@ -55,30 +55,35 @@ class StaffList extends React.Component {
         return (
             <div className="container">
                 <div className="row mt-3">
-                <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal}>
-                        <ModalHeader toggle = {this.toggleModal}>Login</ModalHeader>
-                        <ModalBody>
-                            <Form onSubmit={this.handleLogin}></Form>
-                            <FormGroup>
-                                <Label htmlFor="username"> Username</Label>
-                                <Input type = "text" name = "username" id = "username"
-                                innerRef={(input) => this.username =input}></Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password"> PassWord</Label>
-                                <Input type = "text" name = "password" id = "password"
-                                innerRef={(input) => this.password =input}></Input>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                     <Input type="checkbox" name = "remember"
-                                      innerRef={(input) => this.remember =input}></Input>
-                                     Remember me
-                                </Label>
-                            </FormGroup>
-                            <Button type="submit" value="submit" color="bg-primary">Login </Button>
-                        </ModalBody>
-                    </Modal>
+                    <div>{/*xử lý toggle*/ }
+                    <button type="button" 
+                    className="btn btn-primary" 
+                    dataBsToggle="modal" 
+                    dataBsTarget="#myModal">
+                    Open modal
+                    </button>
+                    <div className="modal fade" id="myModal">
+                    <div className="modal-dialog">
+                    <div className="modal-content">
+
+                    <div className="modal-header">
+                    <h4 className="modal-title">Modal Heading</h4>
+                    <button type="button" className="btn-close" dataBsDismiss="modal"></button>
+                    </div>
+
+                    <div className="modal-body">
+                    Modal body..
+                    </div>
+
+                    <div className="modal-footer">
+                    <button type="button" className="btn btn-danger" dataBsDismiss="modal">Close</button>
+                    </div>
+
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
                     <div className="col-sm-12 col-md-5 col-lg-3 ms-auto">
                     <input type="text" value={this.state.search} 
                     onChange={this.handleSearchChange} name="search"/>
