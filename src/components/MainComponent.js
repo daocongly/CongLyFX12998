@@ -1,5 +1,4 @@
 import React from 'react';
-// import './App.css';
 import {STAFFS, DEPARTMENTS} from '../share/staffs';
 import StaffList from './StaffListComponent';
 import Header from './HeaderComponent';
@@ -9,8 +8,6 @@ import {Route, Switch} from 'react-router-dom'
 import Department from './DepartmentComponent';
 import Salary from './SalaryComponent';
 
-
-
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +15,12 @@ class Main extends React.Component {
       staff: STAFFS,
       depart: DEPARTMENTS
     }
+    this.addChange= this.addChange.bind(this);
+  }
+  addChange(newStaff){
+    this.setState(
+      {staff: [...this.state.staff,newStaff]},
+    )    
   }
   render (){
     const StaffWithId = ({match}) => {
@@ -30,7 +33,8 @@ class Main extends React.Component {
       <div>
       <Header/>
       <Switch>
-      <Route exact path="/" component={()=> <StaffList staff={this.state.staff}/>}/> 
+      <Route exact path="/" component={()=> <StaffList staff={this.state.staff}
+      addChange={this.addChange}/>}/> 
       <Route path="/nhanvien/:staffId" component={StaffWithId}/> 
       <Route path="/phongban" component={() => < Department depart={this.state.depart}/>}/> 
       <Route path="/bangluong" component={() => < Salary salary={this.state.staff}/>}/> 

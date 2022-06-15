@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Col,FormFeedback} from 'reactstrap';
 
-
 class StaffList extends React.Component {
     constructor(props) {
         super(props);
@@ -13,11 +12,11 @@ class StaffList extends React.Component {
             newStaff: {
                 name: '',
                 doB: '',
-                salaryScale: '',
+                salaryScale: 1,
                 startDate: '',
                 department: '',
-                annualLeave: '',
-                overTime: '',
+                annualLeave: 0,
+                overTime: 0,
                 salary: '',
                 image: '/assets/images/alberto.png',
             },
@@ -83,13 +82,12 @@ class StaffList extends React.Component {
         errors.doB = 'Yêu cầu nhập';
         if(this.state.touched.startDate && startDate.length ==='' )
         errors.startDate = 'Yêu cầu nhập';
-        // else if(this.state.touched.doB && doB.length >10)
-        // errors.doB = 'Last Name should be <=10 characters';
-        // const reg = /^\d+$/;
-        // if (this.state.touched.startDate && !reg.test(startDate))
-        // errors.startDate = "Tel. Number should contain only numbers";
         return errors;
     }
+    handleSubmit = () => {
+        this.props.addChange(this.state.newStaff)
+    }
+
 
     render(){
         // danh sách nhân viên
@@ -111,18 +109,17 @@ class StaffList extends React.Component {
         return (
             <div className="container">
                 <div className="row mt-3">
-                        {/*render*/}
-                    <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal}>
-                        <ModalHeader toggle = {this.toggleModal}>Thêm Nhân Viên</ModalHeader>
+                        {/*render modal from*/}
+                    <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
+                        <ModalHeader toggle = {this.toggleModal} >Thêm Nhân Viên</ModalHeader>
                         <ModalBody>
-                            <Form onSubmit={this.handleAddForm}>
+                            <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
                                 <Label htmlFor ="name" md={4}>Tên</Label>
                                 <Col md={8}>
                                     <Input type="text" id="name" name="name"
                                     placeholder="tên"
                                     value={this.state.newStaff.name}
-                                    valid ={errors.name === ''}
                                     invalid ={errors.name !== ''}
                                     onBlur = {()=>this.handleBlur('name')}
                                     onChange={this.handleInputChange}/>
@@ -134,7 +131,7 @@ class StaffList extends React.Component {
                                 <Col md={8}>
                                     <Input type="date" id="doB" name="doB"
                                     value={this.state.newStaff.doB}
-                                    valid ={errors.doB === ''}
+                                    valid={errors.doB === ''}
                                     invalid ={errors.doB !== ''}
                                     onBlur = {()=>this.handleBlur('doB')}
                                     onChange={this.handleInputChange}/>
@@ -146,7 +143,6 @@ class StaffList extends React.Component {
                                 <Col md={8}>
                                     <Input type="date" id="startDate" name="startDate"
                                     value={this.state.newStaff.startDate}
-                                    valid ={errors.startDate === ''}
                                     invalid ={errors.startDate !== ''}
                                     onBlur = {()=>this.handleBlur('startDate')}
                                     onChange={this.handleInputChange}/>
@@ -154,53 +150,41 @@ class StaffList extends React.Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor ="telnum" md={4}>Phòng Ban</Label>
+                                <Label htmlFor ="department" md={4}>Phòng Ban</Label>
                                 <Col md={8}>
-                                <Input type="select" name="contactType"
-                                    value={this.state.contactType}
+                                <Input type="select" id="department" name="department"
+                                    value={this.state.newStaff.department}
                                     onChange={this.handleInputChange}>
-                                    <option>Tel.</option>
-                                    <option>Email</option>
+                                    <option>Sale</option>
+                                    <option>HR</option>
+                                    <option>Marketing</option>
+                                    <option>IT</option>
+                                    <option>Finance</option>
                                 </Input>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor ="telnum" md={4}>Hệ số lương</Label>
+                                <Label htmlFor ="salaryScale" md={4}>Hệ số lương</Label>
                                 <Col md={8}>
-                                    <Input type="tel" id="telnum" name="telnum"
-                                    placeholder="Tel. Number"
-                                    value={this.state.telnum}
-                                    valid ={errors.telnum === ''}
-                                    invalid ={errors.telnum !== ''}
-                                    onBlur = {()=>this.handleBlur('telnum')}
+                                    <Input type="number" id="salaryScale" name="salaryScale"
+                                    value={this.state.newStaff.salaryScale}
                                     onChange={this.handleInputChange}/>
-                                    <FormFeedback>{errors.telnum}</FormFeedback>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor ="telnum" md={4}>Số ngày nghỉ còn lại</Label>
+                                <Label htmlFor ="annualLeave" md={4}>Số ngày nghỉ còn lại</Label>
                                 <Col md={8}>
-                                    <Input type="tel" id="telnum" name="telnum"
-                                    placeholder="Tel. Number"
-                                    value={this.state.telnum}
-                                    valid ={errors.telnum === ''}
-                                    invalid ={errors.telnum !== ''}
-                                    onBlur = {()=>this.handleBlur('telnum')}
+                                    <Input type="number" id="annualLeave" name="annualLeave"
+                                    value={this.state.newStaff.annualLeave}
                                     onChange={this.handleInputChange}/>
-                                    <FormFeedback>{errors.telnum}</FormFeedback>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor ="telnum" md={4}>Số ngày đã làm thêm</Label>
+                                <Label htmlFor ="overTime" md={4}>Số ngày đã làm thêm</Label>
                                 <Col md={8}>
-                                    <Input type="tel" id="telnum" name="telnum"
-                                    placeholder="Tel. Number"
-                                    value={this.state.telnum}
-                                    valid ={errors.telnum === ''}
-                                    invalid ={errors.telnum !== ''}
-                                    onBlur = {()=>this.handleBlur('telnum')}
+                                    <Input type="number" id="overTime" name="overTime"
+                                    value={this.state.newStaff.overTime}
                                     onChange={this.handleInputChange}/>
-                                    <FormFeedback>{errors.telnum}</FormFeedback>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -214,7 +198,7 @@ class StaffList extends React.Component {
                     <div className="col-sm-12 col-md-6 col-lg-5">
                     <h5 style={style}>Nhân Viên</h5> <button onClick={this.toggleModal}> <i className="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
-                    {/*  */}
+                    {/*button search*/}
                     <div className="col-sm-12 col-md-5 col-lg-3 ms-auto">
                     <input type="text" value={this.state.search} 
                     onChange={this.handleSearchChange} name="search"/>
