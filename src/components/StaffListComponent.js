@@ -10,6 +10,7 @@ class StaffList extends React.Component {
             searchfilter: this.props.staff,
             isModalOpen: false,
             newStaff: {
+                id:'',
                 name: '',
                 doB: '',
                 salaryScale: 1,
