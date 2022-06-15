@@ -79,13 +79,15 @@ class StaffList extends React.Component {
         errors.name = 'Yêu cầu nhiều hơn 2 ký tự';
         else if(this.state.touched.name && name.length >= 30)
         errors.name = 'Yêu cầu ít hơn 30 ký tự';
-        if(this.state.touched.doB && doB.length <3 )
-        errors.doB = 'Last Name should be >=3 characters';
-        else if(this.state.touched.doB && doB.length >10)
-        errors.doB = 'Last Name should be <=10 characters';
-        const reg = /^\d+$/;
-        if (this.state.touched.startDate && !reg.test(startDate))
-        errors.startDate = "Tel. Number should contain only numbers";
+        if(this.state.touched.doB && doB.length ==='' )
+        errors.doB = 'Yêu cầu nhập';
+        if(this.state.touched.startDate && startDate.length ==='' )
+        errors.startDate = 'Yêu cầu nhập';
+        // else if(this.state.touched.doB && doB.length >10)
+        // errors.doB = 'Last Name should be <=10 characters';
+        // const reg = /^\d+$/;
+        // if (this.state.touched.startDate && !reg.test(startDate))
+        // errors.startDate = "Tel. Number should contain only numbers";
         return errors;
     }
 
@@ -131,28 +133,26 @@ class StaffList extends React.Component {
                                 <Label htmlFor ="doB" md={4}>Ngày Sinh</Label>
                                 <Col md={8}>
                                     <Input type="date" id="doB" name="doB"
-                                    value={this.state.telnum}
-                                    valid ={errors.telnum === ''}
-                                    invalid ={errors.telnum !== ''}
-                                    onBlur = {()=>this.handleBlur('telnum')}
+                                    value={this.state.newStaff.doB}
+                                    valid ={errors.doB === ''}
+                                    invalid ={errors.doB !== ''}
+                                    onBlur = {()=>this.handleBlur('doB')}
                                     onChange={this.handleInputChange}/>
-                                    <FormFeedback>{errors.telnum}</FormFeedback>
+                                    <FormFeedback>{errors.doB}</FormFeedback>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor ="telnum" md={4}>Ngày vào công ty</Label>
+                                <Label htmlFor ="startDate" md={4}>Ngày vào công ty</Label>
                                 <Col md={8}>
-                                    <Input type="tel" id="telnum" name="telnum"
-                                    placeholder="Tel. Number"
-                                    value={this.state.telnum}
-                                    valid ={errors.telnum === ''}
-                                    invalid ={errors.telnum !== ''}
-                                    onBlur = {()=>this.handleBlur('telnum')}
+                                    <Input type="date" id="startDate" name="startDate"
+                                    value={this.state.newStaff.startDate}
+                                    valid ={errors.startDate === ''}
+                                    invalid ={errors.startDate !== ''}
+                                    onBlur = {()=>this.handleBlur('startDate')}
                                     onChange={this.handleInputChange}/>
                                     <FormFeedback>{errors.telnum}</FormFeedback>
                                 </Col>
                             </FormGroup>
-                            
                             <FormGroup row>
                                 <Label htmlFor ="telnum" md={4}>Phòng Ban</Label>
                                 <Col md={8}>
