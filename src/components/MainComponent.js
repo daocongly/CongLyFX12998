@@ -19,6 +19,7 @@ class Main extends React.Component {
     };
     this.addnewStaff = this.addnewStaff.bind(this);
   }
+  // Thêm id nhân viên mới=với length mảng hiện tại,cập nhật nhân viên mới vào state, lưu trữ trong localStorage
   addnewStaff(newStaff) {
     newStaff.id=this.state.staff.length;
     this.setState(

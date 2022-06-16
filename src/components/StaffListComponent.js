@@ -31,10 +31,10 @@ class StaffList extends React.Component {
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.toggleModal = this.toggleModal.bind(this); 
-        this.handleBlur= this.handleBlur.bind(this);   
+        this.handleBlur = this.handleBlur.bind(this);   
     }
     //nhận giá trị từ input tìm kiếm
-    handleSearchChange=(event)=>{
+    handleSearchChange = (event)=>{
         const name = event.target.name;
         this.setState({
             [name]: event.target.value
@@ -85,20 +85,10 @@ class StaffList extends React.Component {
         errors.startDate = 'Yêu cầu nhập';
         return errors;
     }
+    // submit the form
     handleSubmit = () => {
-        // const name ="id"
-        // const value = this.props.staff.length + 1
-        // console.log(value);
-        // this.setState((state) => (
-        //     {
-        //         newStaff : {...state.newStaff,[name]: value}
-        //     }
-        // ),
-        //     )
             this.props.addnewStaff(this.state.newStaff)
-
     }
-
     render(){
         // danh sách nhân viên
         const list = this.state.searchfilter.map((item) => {
@@ -204,10 +194,11 @@ class StaffList extends React.Component {
                         </Form>
                         </ModalBody>
                     </Modal>
+                    {/*button thêm nhân viên mới*/}
                     <div className="col-sm-12 col-md-6 col-lg-5">
-                    <h5 style={style}>Nhân Viên</h5> <button onClick={this.toggleModal}> <i className="fa fa-plus" aria-hidden="true"></i></button>
+                    <h5 style={style} className="me-3">Nhân Viên</h5> <button  onClick={this.toggleModal}> <i className="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
-                    {/*button search*/}
+                    {/*button tìm kiếm nhân viên*/}
                     <div className="col-sm-12 col-md-5 col-lg-3 ms-auto">
                     <input type="text" value={this.state.search} 
                     onChange={this.handleSearchChange} name="search"/>
