@@ -10,7 +10,7 @@ class StaffList extends React.Component {
             searchfilter: this.props.staff,
             isModalOpen: false,
             newStaff: {
-                id:'',
+                id: '',
                 name: '',
                 doB: '',
                 salaryScale: 1,
@@ -86,7 +86,17 @@ class StaffList extends React.Component {
         return errors;
     }
     handleSubmit = () => {
-        this.props.addChange(this.state.newStaff)
+        // const name ="id"
+        // const value = this.props.staff.length + 1
+        // console.log(value);
+        // this.setState((state) => (
+        //     {
+        //         newStaff : {...state.newStaff,[name]: value}
+        //     }
+        // ),
+        //     )
+            this.props.addnewStaff(this.state.newStaff)
+
     }
 
     render(){
