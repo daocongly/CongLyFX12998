@@ -17,9 +17,10 @@ class Main extends React.Component {
         : STAFFS,
       depart: DEPARTMENTS,
     };
-    this.addChange = this.addChange.bind(this);
+    this.addnewStaff = this.addnewStaff.bind(this);
   }
-  addChange(newStaff) {
+  addnewStaff(newStaff) {
+    newStaff.id=this.state.staff.length;
     this.setState(
       {
         staff: [...this.state.staff, newStaff],
@@ -29,6 +30,7 @@ class Main extends React.Component {
       }
     );
   }
+ 
   render() {
     const StaffWithId = ({match})=>{
       console.log(match);
@@ -36,11 +38,12 @@ class Main extends React.Component {
         <StaffDetail staff={this.state.staff.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}/>
         );
     };
+    
     return (
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={()=><StaffList staff={this.state.staff} addChange={this.addChange}/>}/>
+          <Route exact path="/" component={()=><StaffList staff={this.state.staff} addnewStaff={this.addnewStaff}/>}/>
           <Route path="/nhanvien/:staffId" component={StaffWithId} />
           <Route path="/phongban" component={() => <Department depart={this.state.depart} />}/>
           <Route path="/bangluong" component={() => <Salary salary={this.state.staff} />}/>

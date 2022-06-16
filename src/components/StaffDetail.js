@@ -8,7 +8,7 @@ function StaffDetail(props){
     return(
         <div className="container">
             <Breadcrumb>
-            <BreadcrumbItem><Link to='/nhanvien'>Nhân Viên</Link></BreadcrumbItem>
+            <BreadcrumbItem><Link to='/'>Nhân Viên</Link></BreadcrumbItem>
             <BreadcrumbItem active>{props.staff.name}</BreadcrumbItem>
             </Breadcrumb>
             <div className="row">
