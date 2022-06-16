@@ -30,38 +30,20 @@ class Main extends React.Component {
     );
   }
   render() {
-    const StaffWithId = ({ match }) => {
+    const StaffWithId = ({match})=>{
       console.log(match);
       return (
-        <StaffDetail
-          staff={
-            this.state.staff.filter(
-              (staff) => staff.id === parseInt(match.params.staffId, 10)
-            )[0]
-          }
-        />
-      );
+        <StaffDetail staff={this.state.staff.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}/>
+        );
     };
     return (
       <div>
         <Header />
         <Switch>
-          <Route
-            exact
-            path="/"
-            component={() => (
-              <StaffList staff={this.state.staff} addChange={this.addChange} />
-            )}
-          />
+          <Route exact path="/" component={()=><StaffList staff={this.state.staff} addChange={this.addChange}/>}/>
           <Route path="/nhanvien/:staffId" component={StaffWithId} />
-          <Route
-            path="/phongban"
-            component={() => <Department depart={this.state.depart} />}
-          />
-          <Route
-            path="/bangluong"
-            component={() => <Salary salary={this.state.staff} />}
-          />
+          <Route path="/phongban" component={() => <Department depart={this.state.depart} />}/>
+          <Route path="/bangluong" component={() => <Salary salary={this.state.staff} />}/>
         </Switch>
         <Footer />
       </div>

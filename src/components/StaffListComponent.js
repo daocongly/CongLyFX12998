@@ -30,8 +30,8 @@ class StaffList extends React.Component {
         // giằng buộc this trong method
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);     
-
+        this.toggleModal = this.toggleModal.bind(this); 
+        this.handleBlur= this.handleBlur.bind(this);   
     }
     //nhận giá trị từ input tìm kiếm
     handleSearchChange=(event)=>{
@@ -55,7 +55,7 @@ class StaffList extends React.Component {
             isModalOpen: !this.state.isModalOpen})
     }
     // input modal thêm nhân viên
-    handleInputChange=(event)=>{
+    handleInputChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({
@@ -79,16 +79,15 @@ class StaffList extends React.Component {
         errors.name = 'Yêu cầu nhiều hơn 2 ký tự';
         else if(this.state.touched.name && name.length >= 30)
         errors.name = 'Yêu cầu ít hơn 30 ký tự';
-        if(this.state.touched.doB && doB.length ==='' )
+        if(this.state.touched.doB && doB === '' )
         errors.doB = 'Yêu cầu nhập';
-        if(this.state.touched.startDate && startDate.length ==='' )
+        if(this.state.touched.startDate && startDate === '' )
         errors.startDate = 'Yêu cầu nhập';
         return errors;
     }
     handleSubmit = () => {
         this.props.addChange(this.state.newStaff)
     }
-
 
     render(){
         // danh sách nhân viên
@@ -132,7 +131,6 @@ class StaffList extends React.Component {
                                 <Col md={8}>
                                     <Input type="date" id="doB" name="doB"
                                     value={this.state.newStaff.doB}
-                                    valid={errors.doB === ''}
                                     invalid ={errors.doB !== ''}
                                     onBlur = {()=>this.handleBlur('doB')}
                                     onChange={this.handleInputChange}/>
@@ -147,7 +145,7 @@ class StaffList extends React.Component {
                                     invalid ={errors.startDate !== ''}
                                     onBlur = {()=>this.handleBlur('startDate')}
                                     onChange={this.handleInputChange}/>
-                                    <FormFeedback>{errors.telnum}</FormFeedback>
+                                    <FormFeedback>{errors.startDate}</FormFeedback>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
