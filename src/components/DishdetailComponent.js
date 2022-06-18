@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb,BreadcrumbItem} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import dateFormat from 'dateformat';
 import {Link} from 'react-router-dom';
 
@@ -17,7 +16,7 @@ function RenderDish({dish}) {
         </div>
     );
 }
-function RenderComments({comments}){
+function RenderComments({comments, addComment, dishId}){
     if (comments != null)
         return(
             <div className="col-12 col-md-5 m-1">
@@ -33,6 +32,7 @@ function RenderComments({comments}){
                     })}
 
                 </ul>
+                <CommentForm dishId={dishId} addComment={addComment}/>
             </div>
         );
     else
@@ -40,6 +40,35 @@ function RenderComments({comments}){
             <diV></diV>
         );       
 }
+
+class CommentForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state={
+            isNavOpen: false,
+            isModalOpen: false
+        };
+    }
+    toggleModal(){
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
+    handleSubmit(values){
+        this.toggleModal();
+        this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
+    }
+    render(){
+
+
+
+
+
+    }
+}
+
 const DishDetail = (props) => {
     if (props.dish !=null)
     return(
@@ -56,7 +85,10 @@ const DishDetail = (props) => {
                 </div>
             <div className="row">              
                 <RenderDish dish ={props.dish}/>
-                <RenderComments comments={props.comments}/>
+                <RenderComments comments={props.comments}
+                addComment={props.addComment}
+                dishId={props.dish.id}
+                />
             </div>
         </div>
     );
