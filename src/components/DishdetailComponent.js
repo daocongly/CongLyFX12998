@@ -72,7 +72,7 @@ class CommentForm extends React.Component {
             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
             <ModalHeader toggle = {this.toggleModal}>Submitted</ModalHeader>
             <ModalBody>
-                <LocalForm onSubmit={(values)=> this.handleSubmit(values)}></LocalForm>
+                <LocalForm onSubmit={(values)=> this.handleSubmit(values)}/>
                 <Row className="form-group">
                     <Col>
                     <Label htmlFor="rating">Rating</Label>
@@ -94,6 +94,7 @@ class CommentForm extends React.Component {
                     </Control.text>
                     </Col>
                 </Row>
+                </LocalForm>
             </ModalBody>
             </Modal>
         </div>
