@@ -17,16 +17,16 @@ const mapStateToProps = state => {
   }
 }
 class Main extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
   }
   
   render() {
     const Homepage = () => {
       return (
-        <Home dish ={this.props.dishes.filter((dish) => dish.featured) [0]}
-        promotion = {this.props.promotions.filter((promo) => promo.featured) [0]}
-        leader ={this.props.leaders.filter((leader) => leader.featured) [0]}     
+        <Home dish ={this.props.dishes.filter((dish) => dish.featured)[0]}
+        promotion = {this.props.promotions.filter((promo) => promo.featured)[0]}
+        leader ={this.props.leaders.filter((leader) => leader.featured)[0]}     
         />
       );
     }
