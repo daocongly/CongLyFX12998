@@ -5,7 +5,7 @@ import dateFormat from 'dateformat';
 import {Link} from 'react-router-dom';
 import {Control, LocalForm,Errors} from 'react-redux-form';
 
-const maxLength = (len)=>(val)=>!(val) || (val.length<=15);
+const maxLength = (len)=>(val)=>!(val) || (val.length <=len);
 const minLength = (len)=>(val)=> val && (val.length >=len)
 
 function RenderDish({dish}) {
@@ -68,11 +68,11 @@ class CommentForm extends React.Component {
     render(){
         return(
         <div>
-            <Button outline onClick={this.toggleModal}><span></span></Button>
+            <Button outline onClick={this.toggleModal}><i class="fa fa-pencil" aria-hidden="true"></i>Submit Comment</Button>
             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-            <ModalHeader toggle = {this.toggleModal}>Submitted</ModalHeader>
+            <ModalHeader toggle = {this.toggleModal}>Submit Comment</ModalHeader>
             <ModalBody>
-                <LocalForm onSubmit={(values)=> this.handleSubmit(values)}/>
+                <LocalForm onSubmit={(values)=> this.handleSubmit(values)}>
                 <Row className="form-group">
                     <Col>
                     <Label htmlFor="rating">Rating</Label>
@@ -90,10 +90,32 @@ class CommentForm extends React.Component {
                     <Label htmlFor="author">Your Name</Label>
                     <Control.text model=".author" id="author"
                     placeholder="Your Name"
-                    >
-                    </Control.text>
+                    className="form-control"
+                    validators={{
+                        minLength: minLength(3),
+                        maxLength: maxLength(15)
+                    }}
+                    />
+                     <Errors
+                        className="text-danger"
+                        model=".author"
+                        show="touched"
+                        messages = {{
+                        minLength: "Must be greater than 3 number",
+                        maxLength: "Must be 15 number or less",
+                        }}
+                        />
                     </Col>
                 </Row>
+                <Row className="form-group">
+                    <Col>
+                    <Label htmlFor="comment">Comment</Label>
+                    <Control.textarea model=".comment" id="comment"
+                    rows="6" className="form-control"
+                    />
+                    </Col>
+                </Row>
+                <Button type="submit" className = "bg-primary">Submit</Button>
                 </LocalForm>
             </ModalBody>
             </Modal>
