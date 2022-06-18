@@ -1,7 +1,12 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb,BreadcrumbItem} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb,BreadcrumbItem,
+Label,Modal, ModalHeader, ModalBody,Button,Row,Col} from 'reactstrap';
 import dateFormat from 'dateformat';
 import {Link} from 'react-router-dom';
+import {Control, LocalForm,Errors} from 'react-redux-form';
+
+const maxLength = (len)=>(val)=>!(val) || (val.length<=15);
+const minLength = (len)=>(val)=> val && (val.length >=len)
 
 function RenderDish({dish}) {
     return (
@@ -37,7 +42,7 @@ function RenderComments({comments, addComment, dishId}){
         );
     else
         return(
-            <diV></diV>
+            <div></div>
         );       
 }
 
@@ -61,11 +66,38 @@ class CommentForm extends React.Component {
         this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
     }
     render(){
-
-
-
-
-
+        return(
+        <div>
+            <Button outline onClick={this.toggleModal}><span></span></Button>
+            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+            <ModalHeader toggle = {this.toggleModal}>Submitted</ModalHeader>
+            <ModalBody>
+                <LocalForm onSubmit={(values)=> this.handleSubmit(values)}></LocalForm>
+                <Row className="form-group">
+                    <Col>
+                    <Label htmlFor="rating">Rating</Label>
+                    <Control.select model=".rating" id="rating">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Control.select>
+                    </Col>
+                </Row>
+                <Row className="form-group">
+                    <Col>
+                    <Label htmlFor="author">Your Name</Label>
+                    <Control.text model=".author" id="author"
+                    placeholder="Your Name"
+                    >
+                    </Control.text>
+                    </Col>
+                </Row>
+            </ModalBody>
+            </Modal>
+        </div>
+        );
     }
 }
 
