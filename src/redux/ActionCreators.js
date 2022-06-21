@@ -15,7 +15,7 @@ export const fetchDishes = () => (dispatch) => {
 
     setTimeout(() => {
         dispatch(addDishes(DISHES));
-    },20000000)
+    },2000)
 }
 
 export const dishesLoading =()=> ({
