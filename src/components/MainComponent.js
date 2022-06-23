@@ -59,11 +59,11 @@ class Main extends Component {
       <div>
         <Header/>
         <Switch>
-          <Route path="/home" component = {Homepage} />
           <Route exact path="/menu" component ={() => <Menu dishes={this.props.dishes} />}/>
           <Route path="/menu/:dishId" component={DishWithId} />
           <Route exact path="/contactus" component = {()=> <Contact resetFeedbackForm={this.props.resetFeedbackForm}/>} />
-          <Redirect to="/home" />
+          <Route path="/" component = {Homepage} />
+          <Redirect to="/" />
         </Switch>
         <Footer/>
       </div>
