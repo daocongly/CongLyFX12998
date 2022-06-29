@@ -10,6 +10,7 @@ import Salary from "./SalaryComponent";
 import {connect} from 'react-redux';
 import { fetchStaffs, fetchDepart, fetchSalary } from "../redux/ActionCreators"; 
 
+// truyền state từ redux dưới dang props
 const mapStateToProps = state => {
   return {
     staffs: state.staffs,
@@ -17,6 +18,7 @@ const mapStateToProps = state => {
     salarys: state.salarys
   }
 }
+// truyền  dispatch action creator dưới dạng props
 const mapDispatchToProps = (dispatch) => ({
   fetchStaffs: () => {dispatch(fetchStaffs())},
   fetchDepart: () => {dispatch(fetchDepart())},
@@ -24,7 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 class Main extends React.Component {
-
+  // gọi API
   componentDidMount(){
     this.props.fetchStaffs();
     this.props.fetchDepart();
@@ -32,19 +34,19 @@ class Main extends React.Component {
   }
 
   render() {
-    // 
-    console.log(this.props.staffs.staffs);
-
+    // render chi tiết nhân viên
     const StaffWithId = ({match}) => {
       return (
-        <StaffDetail staff={this.props.staffs.staffs.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}/>
+        <StaffDetail 
+        staff={this.props.staffs.staffs.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}
+        department={this.props.departs.departs}/>
         );
     };
-
+    // render danh sách nhân viên phòng ban
     const DepartWithId = ({match}) => {
       return (
-        <DepartmentList depart={this.props.staffs.staffs.filter((staff)=>staff.departmentId === match.params.departId)}/>
-        );
+        <DepartmentList 
+        depart={this.props.staffs.staffs.filter((staff)=>staff.departmentId === match.params.departId)}/>);
     };
     
     return (

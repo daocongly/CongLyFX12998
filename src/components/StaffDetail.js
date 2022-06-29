@@ -4,7 +4,7 @@ import { Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 function StaffDetail(props){
-    console.log(props.staff);
+    const department = props.department.filter((department) => department.id === props.staff.departmentId)[0];
 
     if (props.staff !=null)
     return(
@@ -21,7 +21,7 @@ function StaffDetail(props){
                     <h3>{props.staff.name}</h3>
                     <p>Ngày sinh: {dateFormat(props.staff.doB,"dd/mm/yyyy")}</p>
                     <p>Ngày vào công ty: {dateFormat(props.staff.startDate,"dd/mm/yyyy")}</p>
-                    <p>Phòng ban: {props.staff.name}</p>
+                    <p>Phòng ban: {department.name}</p>
                     <p>Số ngày nghỉ còn lại: {props.staff.annualLeave}</p>
                     <p>Số ngày đã làm thêm: {props.staff.overTime}</p>
                 </div>
