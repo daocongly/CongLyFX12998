@@ -11,7 +11,11 @@ function DepartmentList(props) {
                 <p className="border">{item.name}</p>
                 </Link>
             </div>
-            ); });
+            );});
+    return (
+    <div className="row mt-3">
+        {list}
+    </div>)
 }
 
 export default DepartmentList;
