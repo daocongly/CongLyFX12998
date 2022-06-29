@@ -33,8 +33,11 @@ class Main extends React.Component {
 
   render() {
     // 
+    console.log(this.props.staffs.staffs);
+
     const StaffWithId = ({match})=>{
       return (
+        
         <StaffDetail staff={this.props.staffs.staffs.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}/>
         );
     };

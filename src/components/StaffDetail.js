@@ -4,6 +4,8 @@ import { Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 function StaffDetail(props){
+    console.log(props.staff);
+
     if (props.staff !=null)
     return(
         <div className="container">
