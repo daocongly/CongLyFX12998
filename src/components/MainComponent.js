@@ -3,6 +3,7 @@ import StaffList from "./StaffListComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import StaffDetail from "./StaffDetail";
+import DepartmentList from './DepartmentListComponent';
 import { Route, Switch, withRouter } from "react-router-dom";
 import Department from "./DepartmentComponent";
 import Salary from "./SalaryComponent";
@@ -31,9 +32,16 @@ class Main extends React.Component {
   }
 
   render() {
+    // 
     const StaffWithId = ({match})=>{
       return (
         <StaffDetail staff={this.props.staffs.staffs.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}/>
+        );
+    };
+
+    const DepartWithId = ({match})=>{
+      return (
+        <DepartmentList depart={this.props.staffs.staffs.filter((staff)=>staff.departmentId === match.params.departId)}/>
         );
     };
     
@@ -44,6 +52,7 @@ class Main extends React.Component {
           <Route exact path="/" component={()=><StaffList staff={this.props.staffs.staffs} />}/>
           <Route path="/nhanvien/:staffId" component={StaffWithId} />
           <Route path="/phongban" component={() => <Department depart={this.props.departs.departs} />}/>
+          <Route path="/phongban/:departId" component={DepartWithId} />
           <Route path="/bangluong" component={() => <Salary salary={this.props.salarys.salarys} />}/>
         </Switch>
         <Footer />
