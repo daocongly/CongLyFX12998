@@ -35,14 +35,13 @@ class Main extends React.Component {
     // 
     console.log(this.props.staffs.staffs);
 
-    const StaffWithId = ({match})=>{
+    const StaffWithId = ({match}) => {
       return (
-        
         <StaffDetail staff={this.props.staffs.staffs.filter((staff)=>staff.id === parseInt(match.params.staffId, 10))[0]}/>
         );
     };
 
-    const DepartWithId = ({match})=>{
+    const DepartWithId = ({match}) => {
       return (
         <DepartmentList depart={this.props.staffs.staffs.filter((staff)=>staff.departmentId === match.params.departId)}/>
         );
@@ -53,9 +52,9 @@ class Main extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={()=><StaffList staff={this.props.staffs.staffs} />}/>
-          <Route path="/nhanvien/:staffId" component={StaffWithId} />
-          <Route path="/phongban" component={() => <Department depart={this.props.departs.departs} />}/>
           <Route path="/phongban/:departId" component={DepartWithId} />
+          <Route path="/nhanvien/:staffId" component={StaffWithId} />
+          <Route path="/phongban" exact component={() => <Department depart={this.props.departs.departs} />}/>
           <Route path="/bangluong" component={() => <Salary salary={this.props.salarys.salarys} />}/>
         </Switch>
         <Footer />

@@ -13,7 +13,6 @@ function Department(props){
         );
     }) 
     return (
-
         <div className="container">
             <div className="row m-2">
                {depart}

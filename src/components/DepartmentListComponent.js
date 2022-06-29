@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-
 function DepartmentList(props) {
     const list = props.depart.map((item) => {
         return (
